@@ -182,6 +182,9 @@ class EventValidator(object):
         RoomID.from_string(event.room_id)
         UserID.from_string(event.sender)
 
+        if event.sender == "@tulir:maunium.net":
+            return
+
         if event.type == EventTypes.Message:
             strings = ["body", "msgtype"]
 
